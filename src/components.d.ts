@@ -16,6 +16,22 @@ import {
 
 export namespace Components {
 
+  interface AppAdd {}
+  interface AppAddAttributes extends StencilHTMLAttributes {}
+
+  interface AppDetail {
+    'match': MatchResults;
+  }
+  interface AppDetailAttributes extends StencilHTMLAttributes {
+    'match'?: MatchResults;
+  }
+
+  interface AppFooter {}
+  interface AppFooterAttributes extends StencilHTMLAttributes {}
+
+  interface AppHeader {}
+  interface AppHeaderAttributes extends StencilHTMLAttributes {}
+
   interface AppHome {}
   interface AppHomeAttributes extends StencilHTMLAttributes {}
 
@@ -32,17 +48,49 @@ export namespace Components {
 
 declare global {
   interface StencilElementInterfaces {
+    'AppAdd': Components.AppAdd;
+    'AppDetail': Components.AppDetail;
+    'AppFooter': Components.AppFooter;
+    'AppHeader': Components.AppHeader;
     'AppHome': Components.AppHome;
     'AppProfile': Components.AppProfile;
     'AppRoot': Components.AppRoot;
   }
 
   interface StencilIntrinsicElements {
+    'app-add': Components.AppAddAttributes;
+    'app-detail': Components.AppDetailAttributes;
+    'app-footer': Components.AppFooterAttributes;
+    'app-header': Components.AppHeaderAttributes;
     'app-home': Components.AppHomeAttributes;
     'app-profile': Components.AppProfileAttributes;
     'app-root': Components.AppRootAttributes;
   }
 
+
+  interface HTMLAppAddElement extends Components.AppAdd, HTMLStencilElement {}
+  var HTMLAppAddElement: {
+    prototype: HTMLAppAddElement;
+    new (): HTMLAppAddElement;
+  };
+
+  interface HTMLAppDetailElement extends Components.AppDetail, HTMLStencilElement {}
+  var HTMLAppDetailElement: {
+    prototype: HTMLAppDetailElement;
+    new (): HTMLAppDetailElement;
+  };
+
+  interface HTMLAppFooterElement extends Components.AppFooter, HTMLStencilElement {}
+  var HTMLAppFooterElement: {
+    prototype: HTMLAppFooterElement;
+    new (): HTMLAppFooterElement;
+  };
+
+  interface HTMLAppHeaderElement extends Components.AppHeader, HTMLStencilElement {}
+  var HTMLAppHeaderElement: {
+    prototype: HTMLAppHeaderElement;
+    new (): HTMLAppHeaderElement;
+  };
 
   interface HTMLAppHomeElement extends Components.AppHome, HTMLStencilElement {}
   var HTMLAppHomeElement: {
@@ -63,12 +111,20 @@ declare global {
   };
 
   interface HTMLElementTagNameMap {
+    'app-add': HTMLAppAddElement
+    'app-detail': HTMLAppDetailElement
+    'app-footer': HTMLAppFooterElement
+    'app-header': HTMLAppHeaderElement
     'app-home': HTMLAppHomeElement
     'app-profile': HTMLAppProfileElement
     'app-root': HTMLAppRootElement
   }
 
   interface ElementTagNameMap {
+    'app-add': HTMLAppAddElement;
+    'app-detail': HTMLAppDetailElement;
+    'app-footer': HTMLAppFooterElement;
+    'app-header': HTMLAppHeaderElement;
     'app-home': HTMLAppHomeElement;
     'app-profile': HTMLAppProfileElement;
     'app-root': HTMLAppRootElement;
