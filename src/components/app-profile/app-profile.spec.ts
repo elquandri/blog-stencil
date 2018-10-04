@@ -1,34 +1,34 @@
-import { AppProfile } from './app-profile';
+import { AppProfile } from "./app-profile";
 
-describe('app-profile', () => {
-  it('builds', () => {
+describe("app-profile", () => {
+  it("builds", () => {
     expect(new AppProfile()).toBeTruthy();
   });
 
-  describe('normalization', () => {
-    it('returns a blank string if the name is undefined', () => {
+  describe("normalization", () => {
+    it("returns a blank string if the name is undefined", () => {
       const component = new AppProfile();
-      expect(component.normalize(undefined)).toEqual('');
+      expect(component.normalize(undefined)).toEqual("");
     });
 
-    it('returns a blank string if the name is null', () => {
+    it("returns a blank string if the name is null", () => {
       const component = new AppProfile();
-      expect(component.normalize(null)).toEqual('');
+      expect(component.normalize(null)).toEqual("");
     });
 
-    it('capitalizes the first letter', () => {
+    it("capitalizes the first letter", () => {
       const component = new AppProfile();
-      expect(component.normalize('quincy')).toEqual('Quincy');
+      expect(component.normalize("quincy")).toEqual("Quincy");
     });
 
-    it('lower-cases the following letters', () => {
+    it("lower-cases the following letters", () => {
       const component = new AppProfile();
-      expect(component.normalize('JOSEPH')).toEqual('Joseph');
+      expect(component.normalize("JOSEPH")).toEqual("Joseph");
     });
 
-    it('handles single letter names', () => {
+    it("handles single letter names", () => {
       const component = new AppProfile();
-      expect(component.normalize('q')).toEqual('Q');
+      expect(component.normalize("q")).toEqual("Q");
     });
   });
 });
