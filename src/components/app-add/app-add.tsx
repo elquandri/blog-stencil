@@ -113,12 +113,14 @@ export class AppAdd {
                   </div>
                   <div class="field is-grouped">
                     <p class="control">
+                      <stencil-route-link url="/">
                       <button
                         class="button is-danger"
                         onClick={this.postArticle.bind(this)}
                       >
                         Add
                       </button>
+                      </stencil-route-link>
                     </p>
                     <p class="control">
                       <button class="button is-link">Cancel</button>
@@ -128,9 +130,11 @@ export class AppAdd {
               </div>
               <div class="has-text-right">
                 <p>
-                  <a class="button" href="/">
+                  <stencil-route-link url="/" >
+                   <button class="button">
                     Back to Home
-                  </a>
+                   </button>
+                  </stencil-route-link>
                 </p>
               </div>
             </div>

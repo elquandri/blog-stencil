@@ -24,10 +24,6 @@ export class AppHeader {
                     {" "}
                     <li class="is-active"> Home </li>{" "}
                   </stencil-route-link>
-                  <stencil-route-link url="/detail">
-                    {" "}
-                    <li>Detail</li>{" "}
-                  </stencil-route-link>
                   <stencil-route-link url="/add">
                     {" "}
                     <li> New Artical</li>{" "}

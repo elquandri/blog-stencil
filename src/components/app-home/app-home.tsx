@@ -19,10 +19,16 @@ export class AppHome {
   }
 
   trim(str: string) {
-    let r = Math.min(141, str.length);
-    let point = str.length <= 140 ? "" : "...";
-    return str.substring(0, r) + point;
+    if(str===null){
+      return "Text vide"
+    } else {
+      let r = Math.min(141, str.length);
+      let point = str.length <= 140 ? "" : "...";
+      return str.substring(0, r) + point;
+    }
+
   }
+
 
   render() {
     return (

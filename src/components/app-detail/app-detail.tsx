@@ -57,9 +57,11 @@ export class AppDetail {
               </form>
               <div class="has-text-right">
                 <p>
-                  <a class="button" href="/">
-                    Back to Home
-                  </a>
+                  <stencil-route-link url="/">
+                    <button class="button">
+                      Back to Home
+                    </button>
+                  </stencil-route-link>
                 </p>
               </div>
             </div>
