@@ -6,10 +6,41 @@ import { Component } from "@stencil/core";
   shadow: true
 })
 export class AppAdd {
+  title: string;
+  article: string;
+  author: string;
+
+  postArticle(e) {
+    e.preventDefault();
+    console.log("!");
+    const title = this.title;
+    const article = this.article;
+    const autor = this.author;
+    const payload = {
+      title,
+      article,
+      autor
+    };
+    fetch("https://polymer-101-workshop.cleverapps.io/api/blogpost", {
+      method: "POST",
+      headers: {
+        Accept: "application/json, text/plain, */*",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(payload)
+    })
+      .then(function(res) {
+        return res.json();
+      })
+      .then(function(data) {
+        console.log(JSON.stringify(data));
+      });
+  }
+
   render() {
     return (
       <div class="hero-body">
-        <div class="container ">
+        <div class="container">
           <div class="columns is-multiline is-mobile is-centered">
             <div class="column is-8 is-centered">
               <div class="header-content">
@@ -53,6 +84,7 @@ export class AppAdd {
                         class="input"
                         type="text"
                         placeholder="Text input"
+                        onChange={e => (this.title = e.target.value)}
                       />
                     </p>
                   </div>
@@ -60,7 +92,11 @@ export class AppAdd {
                   <div class="field">
                     <label class="label">Artical</label>
                     <p class="control">
-                      <textarea class="textarea" placeholder="Textarea" />
+                      <textarea
+                        class="textarea"
+                        placeholder="Textarea"
+                        onChange={e => (this.article = e.target.value)}
+                      />
                     </p>
                   </div>
                   <div class="field">
@@ -71,12 +107,18 @@ export class AppAdd {
                         type="text"
                         placeholder="Email input"
                         value=""
+                        onChange={e => (this.author = e.target.value)}
                       />
                     </p>
                   </div>
                   <div class="field is-grouped">
                     <p class="control">
-                      <button class="button is-danger">Add</button>
+                      <button
+                        class="button is-danger"
+                        onClick={this.postArticle.bind(this)}
+                      >
+                        Add
+                      </button>
                     </p>
                     <p class="control">
                       <button class="button is-link">Cancel</button>
