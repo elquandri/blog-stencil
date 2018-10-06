@@ -41,7 +41,7 @@ export class AppHome {
                   <div class="column is-8 is-centered">
                     <div class="header-content">
                       <div class="has-text-centered">
-                        <h1 class="title">{item.title}</h1>
+                        <h1 class="title c3">{item.title}</h1>
                       </div>
                     </div>
 
@@ -57,7 +57,7 @@ export class AppHome {
                       <p>{this.trim(item.article)}</p>
                       <div class="has-text-centered">
                         <stencil-route-link url={"/detail/" + item._id}>
-                          <button class="button">Continue reading</button>
+                          <button class="button is-primary">Continue reading</button>
                         </stencil-route-link>
                       </div>
                     </div>

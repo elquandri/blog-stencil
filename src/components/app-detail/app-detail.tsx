@@ -1,16 +1,19 @@
 import { Component, Prop, State } from "@stencil/core";
-import { MatchResults } from "@stencil/router";
+import {MatchResults, RouterHistory} from "@stencil/router";
 @Component({
   tag: "app-detail",
   styleUrl: "../../global/global.css",
   shadow: true
 })
 export class AppDetail {
-  @Prop()
-  match: MatchResults;
-  @State()
-  articl: any;
+  @Prop()   match: MatchResults;
+  @State()  articl: any;
+  @Prop()   home : RouterHistory;
 
+
+  reculer(){
+    this.home.goBack();
+  }
   componentWillLoad() {
     let id = this.match.params.id;
     console.log(this.match.params);
@@ -24,6 +27,20 @@ export class AppDetail {
       });
   }
 
+  deleteBlogPost() {
+    return fetch("https://polymer-101-workshop.cleverapps.io/api/blogpost/" + this.match.params.id, {
+      method: 'DELETE',headers: {
+        Accept: "application/json, text/plain, */*",
+        "Content-Type": "application/json"
+      },
+    }).then(function(res) {  this.reculer();
+      return res.json();
+    })
+      .then(function(data) {
+        console.log(JSON.stringify(data));
+      });
+  }
+
   render() {
     return (
       <div class="hero-body">
@@ -32,7 +49,7 @@ export class AppDetail {
             <div class="column is-8 is-centered">
               <div class="header-content">
                 <div class="has-text-centered">
-                  <h1 class="title">{this.articl.title}</h1>
+                  <h1 class="title c3">{this.articl.title}</h1>
                 </div>
               </div>
 
@@ -47,12 +64,16 @@ export class AppDetail {
               <div class="single-content">{this.articl.article}</div>
               <form>
                 <div class="field is-grouped">
+                  <stencil-route-link url={"/edit/" + this.articl._id}>
                   <p class="control">
                     <button class="button is-danger">Edit</button>
                   </p>
-                  <p class="control">
-                    <button class="button is-link">Delete</button>
+                  </stencil-route-link>
+                  <stencil-route-link url="/" >
+                  <p class="control c1">
+                    <button class="button is-warning" onClick={() => this.deleteBlogPost()} > Delete</button>
                   </p>
+                  </stencil-route-link>
                 </div>
               </form>
               <div class="has-text-right">

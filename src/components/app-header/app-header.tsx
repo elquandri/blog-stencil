@@ -8,32 +8,32 @@ import { Component } from "@stencil/core";
 export class AppHeader {
   render() {
     return (
-      <div class="hero-head">
+
         <header>
-          <div class="container headOne">
-            <div class="section">
-              <div class="has-text-centered">
-                <h1 class="title is-1 is-spaced">Blog DOSI</h1>
-                <h4 class="subtitle is-4">a simple dosi blog </h4>
+          <div class="sec">
+            <div>
+
+                <h1 class="title is-1 is-spaced ">Mouhcine Blog</h1>
+                <h4 class="subtitle is-7 "> a simple dosi Blog </h4>
               </div>
             </div>
-            <div class="section">
-              <div class="tabs is-centered">
+            <div class="sec">
+              <div class="tabs is-centered ">
                 <ul>
                   <stencil-route-link url="/home">
                     {" "}
-                    <li class="is-active"> Home </li>{" "}
+                    <li class="is-active c2"> Home </li>{" "}
                   </stencil-route-link>
                   <stencil-route-link url="/add">
                     {" "}
-                    <li> New Artical</li>{" "}
+                    <li class="c2"> New Artical</li>{" "}
                   </stencil-route-link>
                 </ul>
-              </div>
+
             </div>
           </div>
         </header>
-      </div>
+
     );
   }
 }

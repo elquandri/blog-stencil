@@ -1,8 +1,8 @@
 import {Component, State, Prop} from "@stencil/core";
-import {RouterHistory} from "@stencil/router";
+import {MatchResults, RouterHistory} from "@stencil/router";
 
 @Component({
-  tag: "app-add",
+  tag: "app-edit",
   styleUrl: "../../global/global.css",
   shadow: true
 })
@@ -10,33 +10,50 @@ export class AppAdd {
   @State()  title: string;
   @State()  article: string;
   @State()  author: string;
+  @State()  _id : any;
+  @State()  myArticl:any;
   @Prop()   home : RouterHistory;
-
+  @Prop()   match : MatchResults;
 
   reculer(){
     this.home.goBack();
   }
 
 
-  postArticle(e) {
+  componentWillLoad() {
+    let id = this.match.params.id;
+    fetch('https://polymer-101-workshop.cleverapps.io/api/blogpost/'+id)
+      .then(response =>response.json()).
+    then(data=>{
+      this.myArticl=data;
+      console.log(this.myArticl)
+      this.title = this.myArticl.title;
+      this.article = this.myArticl.article;
+      this.author = this.myArticl.autor;
+      this._id = this.myArticl._id;
+    })
+  }
+
+  editArticle(e) {
     e.preventDefault();
     console.log("!");
     const title = this.title;
     const article = this.article;
     const autor = this.author;
-    const payload = {
+    const _id = this._id;
+    const postedited = {
+      _id,
       title,
       article,
       autor
     };
-
     fetch("https://polymer-101-workshop.cleverapps.io/api/blogpost", {
-      method: "POST",
+      method: "PUT",
       headers: {
         Accept: "application/json, text/plain, */*",
         "Content-Type": "application/json"
       },
-      body: JSON.stringify(payload)
+      body: JSON.stringify(postedited)
     })
       .then(function(res) { this.reculer();
         return res.json();
@@ -54,7 +71,7 @@ export class AppAdd {
             <div class="column is-8 is-centered">
               <div class="header-content">
                 <div class="has-text-centered">
-                  <h1 class="title c3">New Artical</h1>
+                  <h1 class="title ">Edit Articl</h1>
                 </div>
               </div>
 
@@ -93,6 +110,7 @@ export class AppAdd {
                         class="input"
                         type="text"
                         placeholder="Text input"
+                        value={this.title}
                         onInput={(e: any) => (this.title = e.target.value)}
                       />
                     </p>
@@ -104,6 +122,7 @@ export class AppAdd {
                       <textarea
                         class="textarea"
                         placeholder="Textarea"
+                        value={this.article}
                         onInput={(e: any) => (this.article = e.target.value)}
                       />
                     </p>
@@ -115,6 +134,7 @@ export class AppAdd {
                         class="input"
                         type="text"
                         placeholder="Email input"
+                        value={this.author}
                         onInput={(e: any) => (this.author = e.target.value)}
                       />
                     </p>
@@ -122,18 +142,18 @@ export class AppAdd {
                   <div class="field is-grouped">
                     <p class="control">
                       <stencil-route-link url="/">
-                      <button
-                        class="button is-danger"
-                        onClick={this.postArticle.bind(this)}
-                      >
-                        Add
-                      </button>
+                        <button
+                          class="button is-danger"
+                          onClick={this.editArticle.bind(this)}
+                        >
+                          Confirm
+                        </button>
                       </stencil-route-link>
                     </p>
                     <stencil-route-link url="/" >
-                    <p class="control">
-                      <button class="button is-warning">Cancel</button>
-                    </p>
+                      <p class="control">
+                        <button class="button is-warning">Cancel</button>
+                      </p>
                     </stencil-route-link>
                   </div>
                 </form>
@@ -141,9 +161,9 @@ export class AppAdd {
               <div class="has-text-right">
                 <p>
                   <stencil-route-link url="/" >
-                   <button class="button">
-                    Back to Home
-                   </button>
+                    <button class="button">
+                      Back to Home
+                    </button>
                   </stencil-route-link>
                 </p>
               </div>

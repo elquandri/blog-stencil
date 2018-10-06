@@ -11,18 +11,34 @@ import '@stencil/router';
 import '@stencil/state-tunnel';
 import {
   MatchResults,
+  RouterHistory,
 } from '@stencil/router';
 
 
 export namespace Components {
 
-  interface AppAdd {}
-  interface AppAddAttributes extends StencilHTMLAttributes {}
+  interface AppAdd {
+    'home': RouterHistory;
+  }
+  interface AppAddAttributes extends StencilHTMLAttributes {
+    'home'?: RouterHistory;
+  }
 
   interface AppDetail {
+    'home': RouterHistory;
     'match': MatchResults;
   }
   interface AppDetailAttributes extends StencilHTMLAttributes {
+    'home'?: RouterHistory;
+    'match'?: MatchResults;
+  }
+
+  interface AppEdit {
+    'home': RouterHistory;
+    'match': MatchResults;
+  }
+  interface AppEditAttributes extends StencilHTMLAttributes {
+    'home'?: RouterHistory;
     'match'?: MatchResults;
   }
 
@@ -50,6 +66,7 @@ declare global {
   interface StencilElementInterfaces {
     'AppAdd': Components.AppAdd;
     'AppDetail': Components.AppDetail;
+    'AppEdit': Components.AppEdit;
     'AppFooter': Components.AppFooter;
     'AppHeader': Components.AppHeader;
     'AppHome': Components.AppHome;
@@ -60,6 +77,7 @@ declare global {
   interface StencilIntrinsicElements {
     'app-add': Components.AppAddAttributes;
     'app-detail': Components.AppDetailAttributes;
+    'app-edit': Components.AppEditAttributes;
     'app-footer': Components.AppFooterAttributes;
     'app-header': Components.AppHeaderAttributes;
     'app-home': Components.AppHomeAttributes;
@@ -78,6 +96,12 @@ declare global {
   var HTMLAppDetailElement: {
     prototype: HTMLAppDetailElement;
     new (): HTMLAppDetailElement;
+  };
+
+  interface HTMLAppEditElement extends Components.AppEdit, HTMLStencilElement {}
+  var HTMLAppEditElement: {
+    prototype: HTMLAppEditElement;
+    new (): HTMLAppEditElement;
   };
 
   interface HTMLAppFooterElement extends Components.AppFooter, HTMLStencilElement {}
@@ -113,6 +137,7 @@ declare global {
   interface HTMLElementTagNameMap {
     'app-add': HTMLAppAddElement
     'app-detail': HTMLAppDetailElement
+    'app-edit': HTMLAppEditElement
     'app-footer': HTMLAppFooterElement
     'app-header': HTMLAppHeaderElement
     'app-home': HTMLAppHomeElement
@@ -123,6 +148,7 @@ declare global {
   interface ElementTagNameMap {
     'app-add': HTMLAppAddElement;
     'app-detail': HTMLAppDetailElement;
+    'app-edit': HTMLAppEditElement;
     'app-footer': HTMLAppFooterElement;
     'app-header': HTMLAppHeaderElement;
     'app-home': HTMLAppHomeElement;

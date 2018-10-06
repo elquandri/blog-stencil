@@ -546,6 +546,7 @@ table th {
 
 .has-text-centered {
   text-align: center;
+
 }
 
 .has-text-left {
@@ -2346,7 +2347,7 @@ input[type="submit"].button {
 .notification .title,
 .notification .subtitle,
 .notification .content {
-  color: inherit;
+  color: white;
 }
 
 .notification.is-white {
@@ -2684,7 +2685,7 @@ input[type="submit"].button {
 }
 
 .title {
-  color: #363636;
+  color: darkgray;
   font-size: 2rem;
   font-weight: 300;
   line-height: 1.125;
@@ -2727,7 +2728,7 @@ input[type="submit"].button {
 }
 
 .subtitle {
-  color: #4a4a4a;
+  color: darkgray;
   font-size: 1.25rem;
   font-weight: 300;
   line-height: 1.25;
@@ -4420,7 +4421,7 @@ label.panel-block:hover {
 
 .tabs li.is-active a {
   border-bottom-color: #00d1b2;
-  color: #00d1b2;
+  color: darkgray;
 }
 
 .tabs ul {
@@ -6364,7 +6365,7 @@ label.panel-block:hover {
 }
 
 .hero.is-success .tabs.is-boxed a, .hero.is-success .tabs.is-toggle a {
-  color: #fff;
+  color: darkgray;
 }
 
 .hero.is-success .tabs.is-boxed a:hover, .hero.is-success .tabs.is-toggle a:hover {
@@ -6374,7 +6375,7 @@ label.panel-block:hover {
 .hero.is-success .tabs.is-boxed li.is-active a, .hero.is-success .tabs.is-boxed li.is-active a:hover, .hero.is-success .tabs.is-toggle li.is-active a, .hero.is-success .tabs.is-toggle li.is-active a:hover {
   background-color: #fff;
   border-color: #fff;
-  color: #23d160;
+  color: darkgray;
 }
 
 .hero.is-success.is-bold {
@@ -6442,7 +6443,7 @@ label.panel-block:hover {
 }
 
 .hero.is-warning .tabs a {
-  color: rgba(0, 0, 0, 0.7);
+  color: darkgray;
   opacity: 0.9;
 }
 
@@ -6455,7 +6456,7 @@ label.panel-block:hover {
 }
 
 .hero.is-warning .tabs.is-boxed a, .hero.is-warning .tabs.is-toggle a {
-  color: rgba(0, 0, 0, 0.7);
+  color: darkgray;
 }
 
 .hero.is-warning .tabs.is-boxed a:hover, .hero.is-warning .tabs.is-toggle a:hover {
@@ -6465,7 +6466,7 @@ label.panel-block:hover {
 .hero.is-warning .tabs.is-boxed li.is-active a, .hero.is-warning .tabs.is-boxed li.is-active a:hover, .hero.is-warning .tabs.is-toggle li.is-active a, .hero.is-warning .tabs.is-toggle li.is-active a:hover {
   background-color: rgba(0, 0, 0, 0.7);
   border-color: rgba(0, 0, 0, 0.7);
-  color: #ffdd57;
+  color: darkgray;
 }
 
 .hero.is-warning.is-bold {
@@ -6533,7 +6534,7 @@ label.panel-block:hover {
 }
 
 .hero.is-danger .tabs a {
-  color: #fff;
+  color: darkgray;
   opacity: 0.9;
 }
 
@@ -6618,7 +6619,9 @@ label.panel-block:hover {
   background-color: white;
   padding: 3rem 1.5rem;
 }
-
+.sec{
+  padding: 3rem 1.5rem;
+}
 @media screen and (min-width: 1000px) {
   .section.is-medium {
     padding: 9rem 1.5rem;
@@ -6627,6 +6630,15 @@ label.panel-block:hover {
     padding: 18rem 1.5rem;
   }
 }
+@media screen and (min-width: 1000px) {
+  .sec.is-medium {
+    padding: 9rem 1.5rem;
+  }
+  .sec.is-large {
+    padding: 18rem 1.5rem;
+  }
+}
+
 
 .footer {
   background-color: whitesmoke;
@@ -6686,16 +6698,30 @@ a {
 }
 
 
-header{
-  background-image: url('./assets/header.jpg');
-  background-repeat: no-repeat;
-  box-shadow: 0 2px 3px #000;
-}
+
 
 .hero-foot{
   background-image: url('./assets/header.jpg');
   background-repeat: no-repeat;
   box-shadow: 0 2px 3px #000;
 
+}
+
+.sec{
+  background-image: url('./assets/header.jpg');
+  background-repeat: no-repeat;
+  color: white;
+  text-align: center;
+}
+
+.c1{
+  margin-left: 10px;
+}
+.c2{
+  color: darkgray;
+}
+
+.c3{
+  color:#4a4a4a;
 }
 
