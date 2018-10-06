@@ -13,12 +13,12 @@ export class AppFooter {
           <hr />
           <a class="nav-item" href="http://github.com/plasticneko">
             <span class="icon">
-              <i class="fa fa-github" />
+              <i class="fa fa-github"/>
             </span>
           </a>
           <p>
             created by{" "}
-            <a href="http://github.com/elquandri">github.com/elquandri</a>
+            <a href="https://github.com/elquandri/blog_stencil">github.com/elquandri</a>
           </p>
         </div>
       </div>

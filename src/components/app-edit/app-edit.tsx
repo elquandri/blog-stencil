@@ -71,7 +71,7 @@ export class AppAdd {
             <div class="column is-8 is-centered">
               <div class="header-content">
                 <div class="has-text-centered">
-                  <h1 class="title ">Edit Articl</h1>
+                  <h1 class="title c3">Edit Articl</h1>
                 </div>
               </div>
 

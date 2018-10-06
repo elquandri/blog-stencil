@@ -1,3 +1,8 @@
+
+@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css") ;
+@import url("https://fonts.googleapis.com/css?family=Montserrat");
+
+
 .app-home {
   padding: 10px;
 }
@@ -6712,16 +6717,38 @@ a {
   background-repeat: no-repeat;
   color: white;
   text-align: center;
+  font-family: Montserrat;
 }
 
 .c1{
   margin-left: 10px;
+  font-family: Montserrat;
 }
 .c2{
   color: darkgray;
+  font-family: Montserrat;
 }
 
 .c3{
   color:#4a4a4a;
+  font-family: Montserrat;
+}
+.content{
+  font-family: Montserrat;
+}
+.hero-body{
+  font-family: Montserrat;
+}
+.button{
+  font-family: Montserrat;
+}
+.label{
+  font-family: Montserrat;
+}
+.input{
+  font-family: Montserrat;
 }
 
+.hero-foot{
+  font-family: Montserrat;
+}

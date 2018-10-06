@@ -22,7 +22,7 @@ export class AppHeader {
                 <ul>
                   <stencil-route-link url="/home">
                     {" "}
-                    <li class="is-active c2"> Home </li>{" "}
+                    <li class="is-active c2 "> Home </li>{" "}
                   </stencil-route-link>
                   <stencil-route-link url="/add">
                     {" "}
